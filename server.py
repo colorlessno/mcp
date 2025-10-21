@@ -26,15 +26,10 @@ def now(tz: str = "local") -> str:
 def add(a: float, b: float) -> float:
     """Return a + b."""
     return a + b
-
 @mcp.tool()
 def gen_uuid() -> str:
     """Return a random UUID string."""
     return str(uuid.uuid4())
-
-if __name__ == "__main__":
-    # stdio で実行（Claude Desktop から子プロセスとして起動される）
-    mcp.run()
 
 @mcp.tool()
 def health() -> dict:
@@ -44,4 +39,9 @@ def health() -> dict:
         "python_executable": sys.executable,
         "python_version": platform.python_version(),
         "platform": platform.platform()
+
     }
+
+if __name__ == "__main__":
+    # stdio で実行（Claude Desktop から子プロセスとして起動される）
+    mcp.run()
